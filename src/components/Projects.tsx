@@ -13,7 +13,7 @@ const projectCategories = {
       {
         title: 'MYTHICAL DUNGEON',
         description: 'A 3D Action-RPG dungeon crawler built in Unity. Battle mech enemies, explore techno-ruins, and collect loot in this 2-level open world adventure.',
-        image: 'Dungeon.png',
+        image: '/Dungeon.png',
         tech: ['Unity', 'C#', 'ShaderLab', 'Blender'],
         github: 'https://github.com/Priyanksolanki9853/MYTHICAL_DUNGEON',
         demo: 'https://priyank-solanki.itch.io/mythical-dungeons',
@@ -22,7 +22,7 @@ const projectCategories = {
       {
         title: 'Sharp Shooter',
         description: 'A fast-paced 3D First-Person Shooter (FPS) developed in Unity & C#. Battle waves of enemy drones, utilize multiple weapons, and survive in an open-world arena.',
-        image: 'SS.png',
+        image: '/SS.png',
         tech: ['Unity', 'C#', 'ShaderLab', 'FPS Mechanics'],
         github: 'https://github.com/Priyanksolanki9853/Sharp_Shooter',
         demo: 'https://priyank-solanki.itch.io/shoot-it',
@@ -31,7 +31,7 @@ const projectCategories = {
       {
         title: 'ESCAPE',
         description: 'A 3D endless runner built in Unity. Control the Prince, dodge oncoming obstacles, collect coins, and survive the speed-run challenge.',
-        image: 'Escape.png',
+        image: '/Escape.png',
         tech: ['Unity', 'C#', 'Endless Runner', '3D'],
         github: 'https://github.com/Priyanksolanki9853/ESCAPE',
         demo: 'https://priyank-solanki.itch.io/escape',
@@ -40,7 +40,7 @@ const projectCategories = {
       {
         title: 'Rocket Boost',
         description: 'A physics-based 2D sci-fi platformer built with Unity 6 and C#. Navigate the rocket through alien terrain and avoid obstacles!',
-        image: 'Rocket_Boost.png',
+        image: '/Rocket_Boost.png',
         tech: ['Unity 6', 'C#', 'Physics', '2D Platformer'],
         github: 'https://github.com/Priyanksolanki9853/Rocket_Boost',
         demo: 'https://priyank-solanki.itch.io/rocket-boost',
@@ -49,7 +49,7 @@ const projectCategories = {
       {
         title: 'Obstacle Dodge',
         description: 'A basic 3D arcade survival game built to learn Unity basics. Control the player, dodge falling projectiles, and master collision physics.',
-        image: 'Obstacle_dodge.png',
+        image: '/Obstacle_dodge.png',
         tech: ['Unity', 'C#', 'Arcade', 'Physics'],
         github: 'https://github.com/Priyanksolanki9853/Obstacle_Dodge',
       
@@ -58,7 +58,7 @@ const projectCategories = {
       {
         title: 'MINI GOLF',
         description: 'A 3D Mini Golf arcade game with 5 levels. Putt your way through windmills, bridges, and obstacles in this physics-based Unity game.',
-        image: 'Mini_Golf.png',
+        image: '/Mini_Golf.png',
         tech: ['Unity', 'C#', 'Physics', 'Casual Game'],
         github: 'https://github.com/Priyanksolanki9853/MINI_GOLF',
       
@@ -84,7 +84,7 @@ const projectCategories = {
       {
         title: 'NYAYA.ai',
         description: 'A Next-Gen Legal Intelligence Platform. Uses RAG & Llama-3 to simplify the Indian Constitution & Bhartiya Nyaya Sanhita (BNS). Features AI Judge, Doc Drafting & Semantic Search.',
-        image: 'Nyaya.png',
+        image: '/Nyaya.png',
         tech: ['Python', 'Llama-3', 'RAG', 'FastAPI', 'Pinecone'],
         github: 'https://github.com/Priyanksolanki9853/NYAYA.ai',
         demo: 'https://samvidhan-ai-psi.vercel.app/',
@@ -93,7 +93,7 @@ const projectCategories = {
       {
         title: 'SafeRoute AI',
         description: 'An AI-powered navigation system that analyzes road geometry, weather, and infrastructure to calculate the safest path, not just the fastest one.',
-        image: 'Safe_route.png',
+        image: '/Safe_route.png',
         github: 'https://github.com/Priyanksolanki9853/SafeRoute-AI',
         demo: 'https://accident-route-advisor.onrender.com/',
         icon: Car,
@@ -109,7 +109,7 @@ const projectCategories = {
       {
         title: 'Gaming Portal',
         description: 'An immersive, cyberpunk-themed game developer portfolio. Features a single-page architecture (SPA), global leaderboard powered by Supabase, embedded HTML5 arcade games, and interactive 3D UI effects.',
-        image: 'GP.png',
+        image: '/ GP.png',
         tech: ['JavaScript', 'HTML5', 'CSS3', 'Supabase'],
         github: 'https://github.com/Priyanksolanki9853/Gaming_Portal',
         demo: 'https://priyanksolanki9853.github.io/Gaming_Portal/',
