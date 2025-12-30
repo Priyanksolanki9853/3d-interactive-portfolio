@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react'; // Added useEffect import
+import { useRef, useState, useEffect } from 'react';
 import { ExternalLink, Github, Gamepad2, Brain, Car, Scale, Crosshair, PersonStanding, Rocket, Target, Bird, Flag, Globe } from 'lucide-react';
+import { Tilt } from 'react-tilt'; // <--- NEW IMPORT
 
 const projectCategories = {
   games: {
@@ -127,7 +128,19 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeCategory, setActiveCategory] = useState<CategoryKey>('games');
 
-  // --- ADDED: Auto-switch tab based on URL Link ---
+  // --- ADDED: Tilt Configuration ---
+  const defaultTiltOptions = {
+    reverse: false,
+    max: 25,
+    perspective: 1000,
+    scale: 1.05,
+    speed: 1000,
+    transition: true,
+    axis: null,
+    reset: true,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+  };
+
   useEffect(() => {
     const handleHashChange = () => {
       if (window.location.hash === '#ai') {
@@ -139,7 +152,7 @@ export default function Projects() {
       }
     };
 
-    handleHashChange(); // Run on mount
+    handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -204,23 +217,23 @@ export default function Projects() {
             return (
               <motion.button
                 key={key}
-                id={key === 'ai' ? 'ai-tab' : undefined} // Added ID for easier targeting
+                id={key === 'ai' ? 'ai-tab' : undefined}
                 onClick={() => setActiveCategory(key)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`
                   flex items-center gap-3 px-6 py-3 rounded-xl font-display font-semibold
-                  transition-all duration-300 border
+                  transition-all duration-300 border backdrop-blur-md
                   ${isActive 
-                    ? `${colors.bg} ${colors.text} ${colors.border} shadow-lg` 
-                    : 'glass-card text-muted-foreground hover:text-foreground border-border/50'
+                    ? `${colors.bg} ${colors.text} ${colors.border} shadow-lg ring-1 ring-white/20` 
+                    : 'bg-card/30 text-muted-foreground hover:text-foreground border-white/5 hover:border-white/20'
                   }
                   ${colors.glow}
                 `}
               >
                 <Icon size={20} />
                 <span>{category.title}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${isActive ? 'bg-background/30' : 'bg-muted'}`}>
+                <span className={`text-xs px-2 py-0.5 rounded-full ${isActive ? 'bg-background/30' : 'bg-white/10'}`}>
                   {category.projects.length}
                 </span>
               </motion.button>
@@ -244,85 +257,82 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <motion.div
-          key={`grid-${activeCategory}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        {/* Projects Grid with TILT and Enhanced Glassmorphism */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectCategories[activeCategory].projects.map((project, index) => {
             const categoryColor = projectCategories[activeCategory].color as keyof typeof categoryColors;
             const colors = categoryColors[categoryColor];
             const Icon = project.icon;
 
             return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className={`group glass-card rounded-2xl overflow-hidden border border-border/50 ${colors.glow} transition-all duration-300`}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                  <div className={`absolute top-4 right-4 p-2 glass-card rounded-lg ${colors.text}`}>
-                    <Icon size={24} />
+              <Tilt key={project.title} options={defaultTiltOptions}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`
+                    group relative h-full glass-card rounded-2xl overflow-hidden border border-white/10 
+                    ${colors.glow} transition-all duration-300 bg-black/40 backdrop-blur-xl
+                  `}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                    <div className={`absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg ${colors.text}`}>
+                      <Icon size={24} />
+                    </div>
                   </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className={`text-xl font-display font-bold ${colors.text} mb-2`}>
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground font-body text-sm mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs font-body bg-muted rounded-full text-muted-foreground"
+                  <div className="p-6 relative z-10">
+                    <h3 className={`text-xl font-display font-bold ${colors.text} mb-2`}>
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 font-body text-sm mb-4 line-clamp-3">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs font-body bg-white/5 border border-white/10 rounded-full text-gray-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        className="p-2 bg-white/5 border border-white/10 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        <Github size={20} />
+                      </motion.a>
+                      <motion.a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        className={`flex items-center gap-2 px-4 py-2 ${colors.bg} ${colors.text} border ${colors.border} rounded-lg font-body font-semibold text-sm ${colors.hover} transition-colors`}
+                      >
+                        <ExternalLink size={16} />
+                        {activeCategory === 'games' ? 'Play Game' : 'View Demo'}
+                      </motion.a>
+                    </div>
                   </div>
-                  
-                  <div className="flex gap-3">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="p-2 glass-card rounded-lg text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <Github size={20} />
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className={`flex items-center gap-2 px-4 py-2 ${colors.bg} ${colors.text} rounded-lg font-body font-semibold text-sm ${colors.hover} transition-colors`}
-                    >
-                      <ExternalLink size={16} />
-                      {activeCategory === 'games' ? 'Play Game' : 'View Demo'}
-                    </motion.a>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Tilt>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
