@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react'; // Added useEffect import
 import { ExternalLink, Github, Gamepad2, Brain, Car, Scale, Crosshair, PersonStanding, Rocket, Target, Bird, Flag, Globe } from 'lucide-react';
 
 const projectCategories = {
@@ -126,6 +126,23 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [activeCategory, setActiveCategory] = useState<CategoryKey>('games');
 
+  // --- ADDED: Auto-switch tab based on URL Link ---
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#ai') {
+        setActiveCategory('ai');
+      } else if (window.location.hash === '#games') {
+        setActiveCategory('games');
+      } else if (window.location.hash === '#websites') {
+        setActiveCategory('websites');
+      }
+    };
+
+    handleHashChange(); // Run on mount
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const categoryColors = {
     primary: {
       bg: 'bg-primary/20',
@@ -186,6 +203,7 @@ export default function Projects() {
             return (
               <motion.button
                 key={key}
+                id={key === 'ai' ? 'ai-tab' : undefined} // Added ID for easier targeting
                 onClick={() => setActiveCategory(key)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
