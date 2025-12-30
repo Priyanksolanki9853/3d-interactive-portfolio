@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# 🚀 3D Interactive Developer Portfolio
 
-## Project info
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.dot.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+An immersive, high-performance 3D portfolio designed to showcase a diverse technical background in **Game Development**, **Artificial Intelligence**, and **Full-Stack Web Development**.
 
-## How can I edit this code?
+🔗 **Live Demo:** [https://3d-interactive-portfolio-609zp2axf.vercel.app/](https://3d-interactive-portfolio-fawn.vercel.app/)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🌟 Overview
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+This portfolio goes beyond the traditional static website, offering an interactive experience that utilizes 3D graphics and modern UI/UX principles.
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Immersive 3D Experience:** Integrated Three.js and React Three Fiber for a depth-driven interface.
+- **Dynamic Project Switching:** A categorized gallery that filters projects (Games, AI, Web) in real-time.
+- **URL Hash Navigation:** Custom routing allows users to jump directly to specific categories like `#ai` or `#projects`.
+- **Responsive Cyberpunk UI:** Fully optimized for mobile and desktop with sleek glassmorphism and glowing effects.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Category | Technologies Used |
+| :--- | :--- |
+| **Frontend Framework** | React 18 (Vite), TypeScript |
+| **Styling** | Tailwind CSS (Utility-first) |
+| **3D Rendering** | Three.js, React Three Fiber, Drei |
+| **Animations** | Framer Motion (Scroll & State triggers) |
+| **Icons** | Lucide React |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📂 Featured Projects
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🧠 AI & Machine Learning
+* **NYAYA.ai:** A Next-Gen Legal Intelligence Platform using RAG & Llama-3 to simplify the Indian Constitution.
+* **SafeRoute AI:** AI-powered navigation analyzing road geometry and infrastructure for safer travel.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🎮 Game Development (Unity)
+* **Mythical Dungeon:** A 3D Action-RPG dungeon crawler built in Unity.
+* **Sharp Shooter:** Fast-paced FPS with wave-based drone combat.
+* **Rocket Boost:** Physics-based 2D sci-fi platformer.
+* **Mini Golf:** 3D arcade physics game with multi-level design.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 🌐 Web Development
+* **Gaming Portal:** Cyberpunk developer portal featuring global leaderboards and embedded HTML5 games.
+
+---
+
+## 🚀 Getting Started
+
+To run this project locally, follow these steps:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Priyanksolanki9853/3d-interactive-portfolio.git
+```
+
+### 2. Navigate to the project folder
+```bash
+cd 3d-interactive-portfolio
+```
+
+### 3. Install dependencies
+```bash
+npm install
+```
+
+### 4. Start the development server
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔧 Deployment
 
-**Use GitHub Codespaces**
+This project is optimized for **Vercel**. Every push to the `main` branch automatically triggers a new build and deployment.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📬 Contact
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Priyank Solanki**
+- **GitHub:** [@Priyanksolanki9853](https://github.com/Priyanksolanki9853)
+- **Email:** [priyanksolanki9853@gmail.com]
+- **LinkedIn:** [Priyanksolanki9853](https://www.linkedin.com/in/priyanksolanki9853/)
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## ⬆️ How to push this to GitHub
 
-## Can I connect a custom domain to my Lovable project?
+To save this README file to your repository, run these commands in your terminal:
 
-Yes, you can!
+```bash
+git add README.md
+git commit -m "Docs: Complete professional README"
+git push origin main
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*Created with ❤️ by Priyank Solanki*
