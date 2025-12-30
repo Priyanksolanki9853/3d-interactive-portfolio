@@ -5,10 +5,14 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import ParticleCursor from '@/components/ParticleCursor';
+import MouseFollower from '@/components/MouseFollower';
 
 const Index = () => {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden cursor-none">
+      <ParticleCursor />
+      <MouseFollower />
       <Navigation />
       <Hero />
       <About />

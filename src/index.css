@@ -193,4 +193,21 @@
     pointer-events: none;
     z-index: 100;
   }
+
+  /* Hide default cursor when custom cursor is active */
+  .cursor-none {
+    cursor: none;
+  }
+
+  .cursor-none * {
+    cursor: none;
+  }
+
+  /* Restore cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .cursor-none,
+    .cursor-none * {
+      cursor: auto;
+    }
+  }
 }
